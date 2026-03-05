@@ -1,0 +1,85 @@
+#hobbies { padding: 9rem 0; }
+
+/* MARQUEE */
+.marquee-o {
+  overflow: hidden; margin: 3.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 0.9rem 0;
+}
+.marquee-t {
+  display: flex; gap: 2.5rem; white-space: nowrap;
+  animation: mq 24s linear infinite;
+}
+.marquee-o:hover .marquee-t { animation-play-state: paused; }
+@keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.mi {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 300; color: var(--text2);
+  transition: color 0.3s, transform 0.3s; cursor: default;
+}
+.mi:hover { color: #d4922a; transform: translateX(4px); }
+.ms {
+  width: 4px; height: 4px;
+  background: rgba(212,146,42,0.35); border-radius: 50%; display: inline-block;
+}
+
+/* BENTO GRID */
+.bento {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+}
+.bc {
+  background: #111111; border: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 1.8rem; position: relative; overflow: hidden;
+  transition: border-color 0.4s, transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.4s, background 0.4s;
+}
+.bc:hover {
+  border-color: rgba(212,146,42,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 40px rgba(212,146,42,0.06);
+}
+.bc:hover .be { transform: scale(1.1); }
+.bc.s2 { grid-column: span 2; }
+.bc.s3 { grid-column: span 3; }
+.bc.gold {
+  background: linear-gradient(145deg, #141008 0%, #0e0c07 100%);
+  border-color: rgba(212,146,42,0.12);
+}
+
+.be {
+  font-size: 2rem; margin-bottom: 0.9rem; display: block;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.bt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400; color: #ede3d5; margin-bottom: 0.4rem;
+}
+.bc.gold .bt { color: #e8ab44; }
+.bp { font-size: 0.82rem; color: var(--text2); line-height: 1.8; font-weight: 350; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .bento { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
+  .bc.s3 { grid-column: span 2; }
+}
+@media (max-width: 768px) {
+  #hobbies { padding: 6rem 0; }
+  .marquee-o { margin: 2.5rem 0; padding: 0.7rem 0; }
+  .mi { font-size: 1.2rem; }
+  .bento { grid-template-columns: 1fr; gap: 0.75rem; }
+  .bc.s2, .bc.s3 { grid-column: span 1; }
+  .bc { padding: 1.8rem 1.5rem; min-height: 44px; }
+  .bt { font-size: 1.2rem; }
+  .bp { font-size: 0.8rem; }
+}
+@media (max-width: 480px) {
+  #hobbies { padding: 4rem 0; }
+  .marquee-t { gap: 1.5rem; font-size: 1rem; }
+  .bc { padding: 1.5rem 1.2rem; }
+  .bt { font-size: 1.1rem; }
+  .bp { font-size: 0.78rem; }
+  .be { font-size: 1.75rem; }
+}

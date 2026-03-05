@@ -1,0 +1,28 @@
+#cursor {
+  position: fixed; top: 0; left: 0;
+  z-index: 9999; pointer-events: none;
+  mix-blend-mode: difference;
+}
+#cdot {
+  width: 6px; height: 6px;
+  background: #ffffff; border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s, opacity 0.3s, width 0.3s, height 0.3s;
+}
+#cring {
+  width: 28px; height: 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%; position: absolute;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1),
+              height 0.35s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.3s, border-width 0.3s;
+}
+.ch #cring {
+  width: 54px; height: 54px;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.ch #cdot { transform: translate(-50%, -50%) scale(0); }
+
+@media (hover: none) { #cursor { display: none; } }

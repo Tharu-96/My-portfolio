@@ -1,0 +1,45 @@
+footer {
+  padding: 2.5rem 4rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.fc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; color: #8c7e6f; letter-spacing: 0.1em;
+}
+.fc span { color: #d4922a; }
+.fr { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.ft2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; color: #4a4038; letter-spacing: 0.1em;
+}
+.ft2 span { color: #b8a990; }
+.btt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; color: var(--text2);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: none; border: none; cursor: pointer;
+  transition: color 0.3s, transform 0.2s; display: flex; align-items: center; gap: 0.4rem;
+}
+.btt:hover { color: #d4922a; transform: translateY(-2px); }
+
+@media (max-width: 1024px) {
+  footer { padding: 2rem 2.5rem; }
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1.5rem;
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .fr { justify-content: center; }
+  .btt { min-height: 44px; min-width: 44px; align-items: center; justify-content: center; }
+}
+@media (max-width: 480px) {
+  footer { padding: 1.5rem 1rem; }
+  .fc, .ft2, .btt { font-size: 0.54rem; }
+  .fr { gap: 1rem; flex-direction: column; }
+}

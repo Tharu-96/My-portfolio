@@ -1,0 +1,86 @@
+#passions { padding: 9rem 0; background: #0c0c0c; position: relative; }
+#passions::before, #passions::after {
+  content: ''; position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,146,42,0.12), transparent);
+}
+#passions::before { top: 0; }
+#passions::after  { bottom: 0; }
+
+.pass-head {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: end; margin-bottom: 4.5rem;
+}
+.pass-intro {
+  font-size: 0.9rem; color: var(--text2); line-height: 1.95;
+  align-self: flex-end; padding-bottom: 0.4rem; font-weight: 350;
+}
+
+/* GRID */
+.pass-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,0.05);
+}
+
+/* CARD */
+.pass-card {
+  background: #111111; padding: 2.8rem 2.4rem;
+  position: relative; overflow: hidden;
+  transition: background 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+}
+.pass-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  height: 2px; width: 0; background: #d4922a;
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.pass-card:hover {
+  background: #141414;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+.pass-card:hover::before { width: 100%; }
+.pass-card:hover .pass-ico { transform: scale(1.08); }
+
+.pass-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem; font-weight: 700;
+  color: transparent; -webkit-text-stroke: 1px rgba(212,146,42,0.07);
+  position: absolute; top: 0.4rem; right: 1.3rem;
+  line-height: 1; user-select: none;
+}
+.pass-ico  {
+  font-size: 1.7rem; margin-bottom: 1.3rem; display: block;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.pass-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 400; color: #ede3d5; margin-bottom: 0.7rem;
+}
+.pass-desc { font-size: 0.84rem; color: var(--text2); line-height: 1.85; font-weight: 350; }
+.pass-chip {
+  display: inline-block; margin-top: 1.3rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.56rem;
+  color: #d4922a; letter-spacing: 0.15em; text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .pass-head { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+  .pass-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  #passions { padding: 6rem 0; }
+  .pass-head { margin-bottom: 2.5rem; }
+  .pass-intro { font-size: 0.85rem; }
+  .pass-grid { grid-template-columns: 1fr; }
+  .pass-card { padding: 2.2rem 1.8rem; min-height: auto; }
+  .pass-name { font-size: 1.3rem; }
+  .pass-desc { font-size: 0.8rem; }
+  .pass-num { font-size: 3rem; }
+}
+@media (max-width: 480px) {
+  #passions { padding: 4rem 0; }
+  .pass-card { padding: 1.8rem 1.2rem; }
+  .pass-name { font-size: 1.2rem; }
+  .pass-desc { font-size: 0.78rem; }
+  .pass-num { font-size: 2.5rem; top: 0.3rem; right: 1rem; }
+}
