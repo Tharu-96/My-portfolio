@@ -26,7 +26,7 @@ export const socialLinks = [
     name: 'Email',
     handle: 'bipin@gmail.com',
     href: 'mailto:bipintharu53@gmail.com',
-    icon: '↗',
+    
   },
 ] as const
 
